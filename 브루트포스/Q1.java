@@ -13,7 +13,6 @@ class BlackEx{
 	public int SimilarM() {
 		// 3개의 숫자의 조합을 고려하여 차이가 가장 작은 값을 저장 
 		int sum = 0; //세 수의 합을 계산한 값 
-		int min = 300001;// M과의 차이 최댓값 
 		int max = 0; // 세수의 합 중 M과의 차이가 최소인 합저장 
 		for(int i=0; i<N-2;i++) {
 			for(int j=i+1; j<N-1; j++) {
