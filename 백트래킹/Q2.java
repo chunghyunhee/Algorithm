@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class Q2{
 	
 	// 순서를 지키면서 n개중에 r개를 뽑는 경우의 수 
-	static void perm(int[] arr, int[] output, boolean[] visited, int depth, int n, int r) {
+	static void perm(int[] arr, int[] output, int depth, int n, int r) {
 		
 		if(depth == r) {
 			print(output, r);
@@ -17,12 +17,9 @@ public class Q2{
 		}
 		
 		for(int i=0; i<n; i++) {
-			if(visited[i] != true) {
-				//visited[i] = true;
-				output[depth] = arr[i];
-				perm(arr, output, visited, depth+1, n, r);
-				visited[i] = false;
-			}
+			output[depth] = arr[i];
+			perm(arr, output, depth+1, n, r);
+
 		}
 	}
 	
@@ -44,12 +41,11 @@ public class Q2{
 		int m = sc.nextInt();
 		int[] arr = new int[n];
 		int[] output = new int[m];
-		boolean[] visited = new boolean[n];
 		
 		for(int i=0; i<n; i++)
 			arr[i] = i+1;
 		
-		perm(arr, output, visited, 0, n, m);
+		perm(arr, output, 0, n, m);
 		
 		sc.close();
 	}
